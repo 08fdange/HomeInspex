@@ -29,9 +29,11 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 #Added gems
-gem 'omniauth'
+
 gem 'devise'
+gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem 'activerecord-session_store'
 
 group :development, :test do

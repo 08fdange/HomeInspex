@@ -4,4 +4,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "home#index"
 
+  resources :clients, only: :show, path: :profile do
+    resources :inspections, only[:index, :show]
+  end
+
+  resources :inspectors, only: :show, path: :profile do
+    resources :inspections
+  end
+
 end

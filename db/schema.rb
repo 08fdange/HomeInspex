@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_24_042908) do
+ActiveRecord::Schema.define(version: 2020_07_24_061350) do
 
   create_table "clients", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,6 +27,28 @@ ActiveRecord::Schema.define(version: 2020_07_24_042908) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_clients_on_email", unique: true
     t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
+  end
+
+  create_table "inspections", force: :cascade do |t|
+    t.string "address"
+    t.date "inspection_date"
+    t.text "comments"
+    t.boolean "completed", default: false
+    t.boolean "structural_systems", default: false
+    t.boolean "exterior", default: false
+    t.boolean "roof_systems", default: false
+    t.boolean "plumbing_system", default: false
+    t.boolean "electrical_system", default: false
+    t.boolean "heating_system", default: false
+    t.boolean "ac_system", default: false
+    t.boolean "interior", default: false
+    t.boolean "insulation_ventilation", default: false
+    t.boolean "fireplaces", default: false
+    t.boolean "attics", default: false
+    t.integer "client_id"
+    t.integer "inspector_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "inspectors", force: :cascade do |t|

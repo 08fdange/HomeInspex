@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :clients, only: :show, path: :profile do
-    resources :inspections, only[:index, :show]
+    resources :inspections, only: [:index, :show, :new, :create]
   end
 
   resources :inspectors, only: :show, path: :profile do

@@ -32,6 +32,7 @@ class InspectionsController < ApplicationController
     def update
         @inspection.update(inspection_params)
         if @inspection.save
+            @inspection.complete_inspection
             redirect_to inspector_inspection_path(current_inspector, @inspection)
         else
             redirect_to edit_inspector_inspection_path(current_inspector)

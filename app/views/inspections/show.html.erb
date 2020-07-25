@@ -1,0 +1,15 @@
+<h3><%= @inspection.address %></h3><br>
+<h5><%= @inspection.inspection_date %></h5><br>
+<h5><%= Inspector.find_by(id: @inspection.inspector_id) %></h5><br>
+<h5><%= Client.find_by(id: @inspection.client_id) %></h5><br>
+<h6><%= @inspection.structural_systems %></h6><br>
+<h6><%= @inspection.exterior %></h6><br>
+<h6><%= @inspection.roof_systems %></h6><br>
+<h6><%= @inspection.plumbing_system %></h6><br>
+<h6><%= @inspection.electrical_system %></h6><br>
+<h6><%= @inspection.heating_system %></h6><br>
+<h6><%= @inspection.ac_system %></h6><br>
+<h6><%= @inspection.interior %></h6><br>
+<h6><%= @inspection.insulation_ventilation %></h6><br>
+<h6><%= @inspection.fireplaces %></h6><br>
+<h6><%= @inspection.attics %></h6><br>

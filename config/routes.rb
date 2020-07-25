@@ -5,11 +5,17 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :clients, only: :show, path: :profile do
-    resources :inspections, only: [:index, :show, :new, :create]
+    resources :inspections, only: [:index, :show, :new, :create, :edit, :update]
   end
 
-  resources :inspectors, only: :show, path: :profile do
+  resources :inspectors, only: :show do
     resources :inspections
   end
+
+  resources :inspections, only: [:new, :create, :edit, :update]
+
+  post '/inspections/new', to: 'inspections#create'
+
+  post '/inspectors/:inspector_id/inspections/:id/edit', to: 'inspections#update'
 
 end

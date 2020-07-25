@@ -1,7 +1,7 @@
 module ApplicationHelper
 
-    def full_name
-        "#{self.first_name} #{self.last_name}"
+    def full_name(model)
+        "#{model.first_name} #{model.last_name}"
     end
-    
+
 end

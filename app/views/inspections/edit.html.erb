@@ -1,0 +1,39 @@
+<h1>Complete Inspection</h1>
+<h4>Address: <%= @inspection.address %></h4>
+<h4>Date: <%= @inspection.inspection_date %></hr>
+<%= form_for :inspection do |f| %>
+    <%= f.label "Structural Systems" %>
+    <%= f.check_box :structural_systems %>
+    <br>
+    <%= f.label "Exterior" %>
+    <%= f.check_box :exterior %>
+    <br>
+    <%= f.label "Roof Systems" %>
+    <%= f.check_box :roof_systems %>
+    <br>
+    <%= f.label "Plumbing System" %>
+    <%= f.check_box :plumbing_system %>
+    <br>
+    <%= f.label "Electrical System" %>
+    <%= f.check_box :electrical_system %>
+    <br>
+    <%= f.label "Heating System" %>
+    <%= f.check_box :heating_system %>
+    <br>
+    <%= f.label "Air Conditioning System" %>
+    <%= f.check_box :ac_system %>
+    <br>
+    <%= f.label "Interior" %>
+    <%= f.check_box :interior %>
+    <br>
+    <%= f.label "Insulation and Ventilation" %>
+    <%= f.check_box :insulation_ventilation %>
+    <br>
+    <%= f.label "Fireplaces" %>
+    <%= f.check_box :fireplaces %>
+    <br>
+    <%= f.label "Attics" %>
+    <%= f.check_box :attics %>
+    <br>
+    <%= f.submit "Submit" %>
+<% end %>

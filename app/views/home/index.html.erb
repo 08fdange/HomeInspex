@@ -14,3 +14,10 @@
   <%= link_to "Client Log Out", destroy_client_session_path, method: "delete" %>
 <% end %>
 
+<% if current_inspector %>
+  <%= current_inspector.email %><br>
+  <%= full_name(current_inspector) %><br>
+  <%= link_to "Inspector Profile", inspector_path(current_inspector) %><br>
+  <%= link_to "Inspector Log Out", destroy_inspector_session_path, method: "delete" %>
+<% end %>
+

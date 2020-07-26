@@ -11,9 +11,21 @@ class InspectionsController < ApplicationController
     end
 
     def show
+        if current_client && current_client.id == @inspection.client_id
+            render :show
+        elsif current_inspector && current_inspector.id == @inspection.inspector_id
+            render :show
+        else
+            redirect_to '/'
+        end
     end
 
     def new
+        if current_client
+            render :new
+        else
+            redirect_to '/'
+        end
     end
 
     def create
@@ -27,6 +39,11 @@ class InspectionsController < ApplicationController
     end
 
     def edit
+        if current_inspector == @inspection.inspector_id
+            :edit
+        else
+            redirect_to '/'
+        end
     end
 
     def update

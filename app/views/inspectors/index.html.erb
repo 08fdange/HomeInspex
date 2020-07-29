@@ -1,0 +1,5 @@
+<ul>
+  <% Inspector.all.sort.each do |inspector| %>
+    <li><%= link_to full_name(inspector), inspector_path(inspector) %></li>
+  <% end %>
+</ul>

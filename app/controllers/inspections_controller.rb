@@ -11,6 +11,7 @@ class InspectionsController < ApplicationController
     end
 
     def show
+        @inspection = Inspection.find_by(id: params[:id])
         if current_client && current_client.id == @inspection.client_id
             render :show
         elsif current_inspector && current_inspector.id == @inspection.inspector_id
@@ -24,7 +25,7 @@ class InspectionsController < ApplicationController
         if current_client
             render :new
         else
-            redirect_to '/'
+            redirect_to '/', alert: "You must be logged in as a client."
         end
     end
 
@@ -32,27 +33,27 @@ class InspectionsController < ApplicationController
         @inspection = Inspection.new(inspection_params)
         @inspection.client_id = current_client.id
         if @inspection.save
-            redirect_to client_inspection_path(current_client, @inspection)
+            redirect_to client_inspection_path(@inspection)
         else 
-            render :new
+            render :new, alert: "Please enter an address, choose a date and an inspector, and try again."
         end
     end
 
     def edit
-        if current_inspector == @inspection.inspector_id
+        if current_inspector.id == @inspection.inspector_id
             :edit
         else
-            redirect_to '/'
+            redirect_to '/', alert: "Must be logged in as the inspector assigned to the inspection."
         end
     end
 
     def update
-        @inspection.update(inspection_params)
-        if @inspection.save
+        
+        if @inspection.update(inspection_params)
             @inspection.complete_inspection
             redirect_to inspector_inspection_path(current_inspector, @inspection)
         else
-            redirect_to edit_inspector_inspection_path(current_inspector)
+            redirect_to edit_inspector_inspection_path(current_inspector), alert: "Something went wrong. Please try again."
         end
     end
 

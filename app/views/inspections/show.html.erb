@@ -1,16 +1,23 @@
+<div class="container">
 <h3><%= @inspection.address %></h3><br>
-<h5>Date: <%= @inspection.inspection_date.strftime("%B %d, %Y") %></h5><br>
-<h5>Inspector: <%= full_name(Inspector.find_by(id: @inspection.inspector_id)) %></h5><br>
-<h5>Client: <%= full_name(Client.find_by(id: @inspection.client_id)) %></h5><br>
-<h5>Status: <%= @inspection.inspection_status %></h5><br>
-<h6>Structural System: <%= @inspection.structural_systems %></h6><br>
-<h6>Exterior: <%= @inspection.exterior %></h6><br>
-<h6>Roof Systems: <%= @inspection.roof_systems %></h6><br>
-<h6>Plumbing System: <%= @inspection.plumbing_system %></h6><br>
-<h6>Electrical System: <%= @inspection.electrical_system %></h6><br>
-<h6>Heating System: <%= @inspection.heating_system %></h6><br>
-<h6>Air Conditioning System: <%= @inspection.ac_system %></h6><br>
-<h6>Interior: <%= @inspection.interior %></h6><br>
-<h6>Insulation and Ventilation: <%= @inspection.insulation_ventilation %></h6><br>
-<h6>Fireplaces: <%= @inspection.fireplaces %></h6><br>
-<h6>Attics: <%= @inspection.attics %></h6><br>
+<ul class="list-group">
+  <li class="list-group-item">Date: <%= @inspection.inspection_date.strftime("%B %d, %Y") %></li>
+  <li class="list-group-item">Inspector: <%= full_name(Inspector.find_by(id: @inspection.inspector_id)) %></li>
+  <li class="list-group-item">Client: <%= full_name(Client.find_by(id: @inspection.client_id)) %></li>
+  <li class="list-group-item">Status: <%= @inspection.inspection_status %></li>
+  <li class="list-group-item">Structural System: <%= @inspection.yes_or_no(@inspection.structural_systems) %></li>
+  <li class="list-group-item">Exterior: <%= @inspection.yes_or_no(@inspection.exterior) %></li>
+  <li class="list-group-item">Roof Systems: <%= @inspection.yes_or_no(@inspection.roof_systems) %></li>
+  <li class="list-group-item">Plumbing System: <%= @inspection.yes_or_no(@inspection.plumbing_system) %></li>
+  <li class="list-group-item">Electrical System: <%= @inspection.yes_or_no(@inspection.electrical_system) %></li>
+  <li class="list-group-item">Heating System: <%= @inspection.yes_or_no(@inspection.heating_system) %></li>
+  <li class="list-group-item">Air Conditioning System: <%= @inspection.yes_or_no(@inspection.ac_system) %></li>
+  <li class="list-group-item">Interior: <%= @inspection.yes_or_no(@inspection.interior) %></li>
+  <li class="list-group-item">Insulation and Ventilation: <%= @inspection.yes_or_no(@inspection.insulation_ventilation) %></li>
+  <li class="list-group-item">Fireplaces: <%= @inspection.yes_or_no(@inspection.fireplaces) %></li>
+  <li class="list-group-item">Attics: <%= @inspection.yes_or_no(@inspection.attics) %></li>
+</ul>
+<% if current_inspector %>
+  <%= link_to "Edit", edit_inspection_path(@inspection) %>
+<% end %>
+</div>

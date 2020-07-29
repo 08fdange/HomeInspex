@@ -4,18 +4,21 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "home#index"
 
-  resource :client, only: :show, path: :profile do
+  get '/about', to: "home#about"
+
+  resource :client, only: :show do
     resources :inspections, only: [:index, :show, :new, :create]
   end
 
-  resources :inspectors, only: :show do
+  resources :inspectors, only: [:index, :show] do
     resources :inspections
   end
 
   resources :inspections, only: [:new, :create, :edit, :update]
 
-  post '/inspections/new', to: 'inspections#create'
+  post '/client/inspections/new', to: 'inspections#create'
 
   post '/inspectors/:inspector_id/inspections/:id/edit', to: 'inspections#update'
+  post '/inspections/:id/edit', to: 'inspections#update'
 
 end

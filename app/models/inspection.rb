@@ -3,6 +3,7 @@ class Inspection < ApplicationRecord
     belongs_to :client
 
     validates :address, presence: true
+    validates :address, uniqueness: true
     validates :inspection_date, presence: true
     
     def tasks_complete

@@ -21,13 +21,41 @@
 </div>
 
 <% if current_client %>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Welcome <%= full_name(current_client) %>!</h1>
+        <p class="lead">Schedule an inspection, check up on your current inspections, or check out available inspectors using the menu above!</p>
+    </div>
+  </div>
+
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner mt-n4">
+      <div class="carousel-item active">
+        <img src="https://advantagesocal.com/wp-content/uploads/2018/09/header-1.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+
   <%= current_client.email %><br>
   <%= full_name(current_client) %><br>
-  <%= link_to "Client Profile", client_path(current_client) %><br>
-  <%= link_to "Client Log Out", destroy_client_session_path, method: "delete" %>
 <% end %>
 
 <% if current_inspector %>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Welcome <%= full_name(current_inspector) %>!</h1>
+      <p class="lead"></p>
+    </div>
+  </div>
+
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner mt-n4">
+      <div class="carousel-item active">
+        <img src="https://advantagesocal.com/wp-content/uploads/2018/09/header-1.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+
   <%= current_inspector.email %><br>
   <%= full_name(current_inspector) %><br>
   <%= link_to "Inspector Profile", inspector_path(current_inspector) %><br>

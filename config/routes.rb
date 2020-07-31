@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :inspectors, controllers: { sessions: "inspectors/sessions", registrations: "inspectors/registrations"}
   devise_for :clients, controllers: {omniauth_callbacks: 'omniauth', sessions: "clients/sessions", registrations: "clients/registrations"}
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: "home#index"
+  root "home#index"
 
   get '/about', to: "home#about"
 

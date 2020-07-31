@@ -1,10 +1,24 @@
-
-<% if !current_client && !current_inspector %>
-  <%= link_to "Sign Up as Client", new_client_registration_path %><br>
-  <%= link_to "Sign Up as Inspector", new_inspector_registration_path %><br>
-  <%= link_to "Log In as Client", new_client_session_path %><br>
-  <%= link_to "Log In as Inspector", new_inspector_session_path %><br>
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
 <% end %>
+
+<div class="container">
+  <% if !current_client && !current_inspector %>
+    <div class="row">
+      <div class="col mt-5 pt-5 pb-5 text-center bg-dark"><h1 class="font-weight-bold text-white">Clients</h1></div>
+      <div class="col mt-5 pt-5 pb-5 text-center bg-dark"><h1 class="font-weight-bold text-white">Inspectors</h1></div>
+    </div>
+    <div class="row">
+      <div class="col border mt-5 pt-5 pb-5 text-center bg-light"><h3 class="text-white"><%= link_to "Sign Up as Client", new_client_registration_path %></h3></div>
+      <div class="col border mt-5 pt-5 pb-5 text-center bg-light"><h3 class="text-white"><%= link_to "Sign Up as Inspector", new_inspector_registration_path %></h3></div>
+      <div class="w-100"></div></h3>
+      <div class="col border mt-5 pt-5 pb-5 text-center bg-light"><h3 class="text-white"><%= link_to "Log In as Client", new_client_session_path %></h3></div>
+      <div class="col border mt-5 pt-5 pb-5 text-center bg-light"><h3 class="text-white"><%= link_to "Log In as Inspector", new_inspector_session_path %></h3></div>
+    </div>
+  <% end %>
+</div>
 
 <% if current_client %>
   <%= current_client.email %><br>

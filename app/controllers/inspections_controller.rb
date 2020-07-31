@@ -35,7 +35,7 @@ class InspectionsController < ApplicationController
         if @inspection.save
             redirect_to client_inspection_path(@inspection)
         else 
-            render :new, alert: "Please enter an address, choose a date and an inspector, and try again."
+            render :new
         end
     end
 

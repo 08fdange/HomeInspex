@@ -36,8 +36,8 @@
               <% end %>
               <% if client_signed_in? %>
                 <a class="dropdown-item" href="<%= new_client_inspection_path(current_client) %>">Schedule Inspection</a>
-                <a class="dropdown-item" href="<%= inspectors_path %>">Inspectors</a>
                 <a class="dropdown-item" href="<%= client_inspections_path %>">Inspections</a>
+                <a class="dropdown-item" href="<%= inspectors_path %>">Inspectors</a>
                 <a class="dropdown-item" data-method= "delete" href="<%= destroy_client_session_path %>">Log Out</a>
               <% end %>
               <% if inspector_signed_in? %>

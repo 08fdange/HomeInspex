@@ -1,8 +1,9 @@
 <div class="form-group">
   <h1 class='logo'>Edit Inspection</h1>
   <h4><%= @inspection.address %></h4>
-  <h4>Date: <%= @inspection.inspection_date %></hr>
-  <%= form_for :inspection do |f| %>
+  <h4>Date: <%= @inspection.inspection_date %></h4><br>
+  <%= render 'inspections/errors' %>
+    <%= form_for :inspection do |f| %>
       <%= f.label "Structural Systems" %>
       <%= f.check_box :structural_systems %>
       <br>

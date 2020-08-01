@@ -9,7 +9,7 @@
     <%= f.date_field :inspection_date, min: Date.tomorrow %>
     <br>
     <%= f.label :inspector %><br>
-    <%= f.collection_select :inspector_id, Inspector.all, :id, :last_name %>
+    <%= f.collection_select :inspector_id, Inspector.all, :id, :last_name, {prompt: "Select Inspector"} %>
     <br>
     <%= f.submit "Schedule Inspection" %>
 <% end %>

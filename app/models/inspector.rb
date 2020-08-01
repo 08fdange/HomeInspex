@@ -16,4 +16,9 @@ class Inspector < ApplicationRecord
       #inspector.password = Devise.friendly_token[0,20]
     #end
   #end
-end
+
+  def self.sort_by_last_name
+    Inspector.order(:last_name)
+  end
+
+end 

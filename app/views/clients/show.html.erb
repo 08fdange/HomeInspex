@@ -1,4 +1,11 @@
-<h1><%= current_client.first_name %>'s Profile</h1>
-<%= link_to "Inspections", client_inspections_path %><br>
-<%= link_to "Schedule an Inspection", new_client_inspection_path %><br>
-<%= link_to "Edit Information", edit_client_registration_path %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3 text-center"><%= full_name(current_client) %></h1>
+    <p class="lead text-center"><strong><%= current_client.email %></strong></p>
+  </div>
+</div>
+<div class="centered">
+  <a class="btn btn-primary btn-lg btn-block" href="<%= client_inspections_path %>">Your Inspections</a>
+  <a class="btn btn-success btn-lg btn-block" href="<%= new_client_inspection_path %>">Schedule an Inspection</a>
+  <a class="btn btn-info btn-lg btn-block" href="<%= edit_client_registration_path %>">Edit your Information</a>
+</div>

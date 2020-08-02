@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   post '/inspectors/:inspector_id/inspections/:id/edit', to: 'inspections#update'
   post '/inspections/:id/edit', to: 'inspections#update'
 
+  get '/inspectors/:id/bio', to: 'inspectors#bio'
+  post '/inspectors/:id/bio', to: 'inspectors#edit_bio'
+
 end

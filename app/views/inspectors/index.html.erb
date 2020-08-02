@@ -1,7 +1,7 @@
 
 
 <ul>
-  <% Inspector.sort_by_last_name.each do |inspector| %>
+  <% Inspector.order_by_last_name.each do |inspector| %>
     <a class="btn btn-primary btn-lg btn-block" href="<%= inspector_path(inspector) %>"><%= full_name(inspector) %></a>
   <% end %>
 </ul>s

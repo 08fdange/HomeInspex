@@ -17,7 +17,7 @@ class Inspector < ApplicationRecord
     #end
   #end
 
-  def self.sort_by_last_name
+  def self.order_by_last_name
     Inspector.order(:last_name)
   end
 

@@ -44,9 +44,6 @@
       </div>
     </div>
   </div>
-
-  <%= current_client.email %><br>
-  <%= full_name(current_client) %><br>
 <% end %>
 
 <% if current_inspector %>
@@ -64,10 +61,5 @@
       </div>
     </div>
   </div>
-
-  <%= current_inspector.email %><br>
-  <%= full_name(current_inspector) %><br>
-  <%= link_to "Inspector Profile", inspector_path(current_inspector) %><br>
-  <%= link_to "Inspector Log Out", destroy_inspector_session_path, method: "delete" %>
 <% end %>
 

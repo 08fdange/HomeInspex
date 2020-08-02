@@ -1,0 +1,13 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3 text-center"><%= full_name(@inspector) %></h1>
+    <p class="lead text-center"><strong><%= @inspector.email %></strong></p>
+  </div>
+</div>
+
+<% if current_inspector == @inspector %>
+  <div class="centered">
+    <a class="btn btn-primary btn-lg btn-block" href="<%= inspector_inspections_path(current_inspector) %>">Your Inspections</a>
+    <a class="btn btn-info btn-lg btn-block" href="<%= edit_inspector_registration_path %>">Edit your Information</a>
+  </div>
+<% end %>

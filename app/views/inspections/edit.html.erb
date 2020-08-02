@@ -3,7 +3,7 @@
   <h4><%= @inspection.address %></h4>
   <h4>Date: <%= @inspection.inspection_date %></h4><br>
   <%= render 'inspections/errors' %>
-    <%= bootstrap_form_for :inspection do |f| %>
+    <%= form_for :inspection do |f| %>
       <%= f.label "Structural Systems" %>
       <%= f.check_box :structural_systems %>
       <br>

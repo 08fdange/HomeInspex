@@ -5,6 +5,8 @@ class Inspection < ApplicationRecord
     validates :address, presence: true
     validates :address, uniqueness: true
     validates :inspection_date, presence: true
+
+    scope :bydate, ->(date) { where("inspection_date = ?", date)}
     
     def tasks_complete
         if self.structural_systems == true &&

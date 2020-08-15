@@ -21,6 +21,14 @@ class InspectionsController < ApplicationController
         end
     end
 
+    def bydate
+        if params[:inspection_date]
+            @inspections = Inspection.bydate(params[:inspection_date])
+        else
+            @inspections = Inspection.all
+        end
+    end
+
     def new
         if current_client
             render :new

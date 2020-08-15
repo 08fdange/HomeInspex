@@ -24,4 +24,7 @@ Rails.application.routes.draw do
   get '/inspectors/:id/bio', to: 'inspectors#bio'
   post '/inspectors/:id/bio', to: 'inspectors#edit_bio'
 
+  get '/inspections/bydate', to: 'inspections#bydate'
+  post '/inspections/bydate', to: 'inspections#bydate'
+
 end

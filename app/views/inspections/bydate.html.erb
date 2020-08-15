@@ -1,0 +1,11 @@
+<h1>Sort By Date</h1><br>
+
+<%= form_tag('/inspections/bydate') do %>
+    <%= label_tag "Inspection Date" %>
+    <%= date_field_tag "inspection_date" %>
+    <%= submit_tag "Submit" %>
+<% end %>
+
+<% @inspections.each do |ins| %>
+    <%= ins.address  %><br>
+<% end %>
